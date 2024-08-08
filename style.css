@@ -1,0 +1,23 @@
+html {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+body {
+  background-color: #00468b;
+  color: white;
+  font-size: 40px;
+}
+
+button {
+  height: 50px;
+  width: 200px;
+  background-color: #008b8b;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
