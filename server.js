@@ -2,23 +2,24 @@ import { createServer } from "http";
 import { readFile } from "fs/promises";
 
 async function server(url) {
-  console.log(url);
-  if (url === "/api/cat-names") {
+  if (url === "/") {
     const catFile = await readFile("./cats.txt", "utf8");
     const catNames = catFile.split("\n");
-    console.log("catNames", catNames);
-    const json = { catNames };
-    return { content: JSON.stringify(json), contentType: "application/json" };
-  }
-
-  if (url === "/") {
+    const index = Math.floor(Math.random() * catNames.length);
+    const catName = catNames[index];
+    const json = { catName };
     const html = `<!doctype html>
       <html>
         <head>
           <link rel="stylesheet" href="style.css">
         </head>
         <body>
-          <script src="client.js"></script>
+          <script>
+            function onClick() {
+              const { catName } = ${JSON.stringify(json)};
+              document.body.innerText = catName;
+            }
+          </script>
           <button onclick="onClick()">Reveal Cat Name</button>
         </body>
       </html>
